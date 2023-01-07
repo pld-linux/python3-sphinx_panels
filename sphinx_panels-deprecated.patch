@@ -1,0 +1,45 @@
+--- sphinx-panels-0.6.0/sphinx_panels/panels.py.orig	2021-06-03 23:37:02.000000000 +0200
++++ sphinx-panels-0.6.0/sphinx_panels/panels.py	2023-01-07 19:48:43.752236454 +0100
+@@ -139,9 +139,9 @@ def parse_single_panel(
+ 
+ def add_child_classes(node):
+     """Add classes to specific child nodes."""
+-    for para in node.traverse(nodes.paragraph):
++    for para in node.findall(nodes.paragraph):
+         para["classes"] = ([] if "classes" in para else para["classes"]) + ["card-text"]
+-    for title in node.traverse(nodes.title):
++    for title in node.findall(nodes.title):
+         title["classes"] = ([] if "classes" in title else title["classes"]) + [
+             "card-title"
+         ]
+--- sphinx-panels-0.6.0/sphinx_panels/tabs.py.orig	2021-06-03 23:37:02.000000000 +0200
++++ sphinx-panels-0.6.0/sphinx_panels/tabs.py	2023-01-07 19:49:17.025389531 +0100
+@@ -127,7 +127,7 @@ class TabbedHtmlTransform(SphinxPostTran
+     def run(self):
+         matcher = NodeMatcher(nodes.container, type="tabbed")
+         tab_set = None
+-        for node in self.document.traverse(matcher):  # type: nodes.container
++        for node in self.document.findall(matcher):  # type: nodes.container
+             if tab_set is None:
+                 tab_set = TabSet(node)
+             elif node["new_group"]:
+--- sphinx-panels-0.6.0/sphinx_panels/dropdown.py.orig	2021-06-03 23:37:02.000000000 +0200
++++ sphinx-panels-0.6.0/sphinx_panels/dropdown.py	2023-01-07 19:49:34.285296026 +0100
+@@ -115,7 +115,7 @@ class DropdownHtmlTransform(SphinxPostTr
+ 
+     def run(self):
+         matcher = NodeMatcher(nodes.container, type="dropdown")
+-        for node in self.document.traverse(matcher):
++        for node in self.document.findall(matcher):
+ 
+             open_marker = nodes.container(
+                 "",
+@@ -171,7 +171,7 @@ class DropdownHtmlTransform(SphinxPostTr
+                 is_div=True,
+                 classes=["summary-content", "card-body"] + node["body_classes"]
+             )
+-            for para in body_node.traverse(nodes.paragraph):
++            for para in body_node.findall(nodes.paragraph):
+                 para["classes"] = ([] if "classes" in para else para["classes"]) + [
+                     "card-text"
+                 ]
