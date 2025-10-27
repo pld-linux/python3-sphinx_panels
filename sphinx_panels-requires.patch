@@ -1,0 +1,29 @@
+--- sphinx-panels-0.6.0/setup.py.orig	2021-06-03 23:37:02.000000000 +0200
++++ sphinx-panels-0.6.0/setup.py	2025-10-27 21:38:12.151803655 +0100
+@@ -26,19 +26,19 @@ setup(
+     include_package_data=True,
+     install_requires=[
+         "docutils",
+-        "sphinx>=2,<5",
++        "sphinx>=2",
+         'importlib-resources~=3.0.0; python_version < "3.7"',
+     ],
+     extras_require={
+         "themes": [
+             "sphinx-rtd-theme",
+-            "pydata-sphinx-theme~=0.4.0",
+-            "sphinx-book-theme~=0.0.36",
+-            "myst-parser~=0.12.9",
++            "pydata-sphinx-theme>=0.4.0",
++            "sphinx-book-theme>=0.0.36",
++            "myst-parser>=0.12.9",
+         ],
+-        "code_style": ["pre-commit~=2.7.0"],
+-        "testing": ["pytest~=6.0.1", "pytest-regressions~=2.0.1"],
+-        "live-dev": ["sphinx-autobuild", "web-compile~=0.2.0"],
++        "code_style": ["pre-commit>=2.7.0"],
++        "testing": ["pytest>=6.0.1", "pytest-regressions>=2.0.1"],
++        "live-dev": ["sphinx-autobuild", "web-compile>=0.2.0"],
+     },
+     classifiers=[
+         "License :: OSI Approved :: MIT License",

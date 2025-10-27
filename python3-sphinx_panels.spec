@@ -9,6 +9,9 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/s/sphinx-panels/sphinx-panels-%{version}.tar.gz
 # Source0-md5:	f2e926a14ad27d66d59fc329339d496e
 Patch0:		sphinx_panels-deprecated.patch
+Patch1:		sphinx_panels-requires.patch
+# https://github.com/executablebooks/sphinx-panels/pulls
+Patch2:		sphinx_panels-PR83.patch
 URL:		https://pypi.org/project/sphinx-panels/
 BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools
@@ -28,7 +31,9 @@ zoptymalizowanych pod kątem HTML+CSS.
 
 %prep
 %setup -q -n sphinx-panels-%{version}
-%patch -P 0 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 %py3_build
