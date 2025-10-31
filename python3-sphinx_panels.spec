@@ -2,7 +2,7 @@ Summary:	Sphinx extension for creating panels in a grid layout
 Summary(pl.UTF-8):	Rozszerzenie Sphinksa do tworzenia paneli w układzie siatkowym
 Name:		python3-sphinx_panels
 Version:	0.6.0
-Release:	4
+Release:	5
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/sphinx-panels/
